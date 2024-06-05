@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>이재희</title>
+    <style>
+body {
+  margin: 0;
+  width: 100%;
+}
+body, a, button, input {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+ul, li, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* 레이아웃 */
+html {
+  min-width: 375px;
+  line-height: 1.15;
+  font-size: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+html .whole {
+  display: inline-block;
+  width: 100%;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+html .page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+html .page .inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+html .page .inner .row {
+  position: relative;
+  height: auto;
+}
+html .intro {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 4.375rem;
+}
+html .intro * {
+  display: inline-block;
+}
+html .intro > p {
+  width: 100%;
+  height: 50%;
+}
+html .intro > p:first-child .inner {
+  justify-content: end;
+}
+html .intro > p:last-child:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) rotate(130deg) skewX(-10deg);
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+html .intro > p:last-child:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  bottom: 29px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 15px;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+html .intro .step1 {
+  position: absolute;
+  left: calc(50% - 180px);
+  width: 360px;
+  top: 0;
+  transform: scale(1);
+  transition-property: left;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  text-align: left;
+}
+html .intro .step1 span {
+  display: none;
+}
+html .intro .step1 span.on1 {
+  display: inline-block;
+}
+html .intro .step1.on2 {
+  left: 0;
+}
+html .intro .step1.ani {
+  animation: ani-step1 ease 1s 1;
+}
+html .intro .step2 {
+  overflow: hidden;
+  padding-top: 80px;
+  transition-property: padding;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+html .intro .step2.on3 {
+  padding-top: 0;
+}
+html .intro .step3 {
+  overflow: hidden;
+  padding-top: 81px;
+  transition-property: padding-top;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+html .intro .step3 strong {
+  position: relative;
+  z-index: 1;
+  font-weight: normal;
+}
+html .intro .step3 strong:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  background-color: black;
+  z-index: -1;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+html .intro .step3 strong:after {
+  z-index: 1;
+  overflow: hidden;
+  content: "이재희";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  white-space: nowrap;
+  color: #fff;
+}
+html .intro .step3 strong.on5:before {
+  width: 100%;
+  height: 100%;
+}
+html .intro .step3 strong.on5:after {
+  width: 100%;
+  height: 100%;
+}
+html .intro .step3.on4 {
+  padding-top: 0;
+}
+html .intro .step3.on6 {
+  overflow: visible;
+}
+html .intro .step3.on7 strong:before {
+  background-color: transparent;
+}
+html .intro .step3.on7 strong:after {
+  content: none;
+}
+html .intro.arrow > p:before, html .intro.arrow > p:after {
+  opacity: 1;
+}
+@keyframes ani-step1 {
+  from {
+    transform: scale(10);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+html .log {
+  width: 100%;
+  height: 100%;
+}
+html .log .inner {
+  justify-content: center;
+}
+html .log table {
+  width: 100%;
+  max-width: 700px;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  border-width: 1px;
+  border-color: transparent;
+  border-style: solid;
+  border-collapse: collapse;
+}
+html .log table ul li + li {
+  padding-top: 5px;
+}
+html .log table th {
+  padding: 10px;
+  vertical-align: top;
+  text-align: left;
+  font-weight: normal;
+}
+html .log table td {
+  padding: 10px;
+}
+html .log table td .date {
+  margin-left: 10px;
+  color: gray;
+  font-size: 1rem;
+}
+html .log table.on {
+  border-color: black;
+}
+html .log table.on th {
+  background-color: black;
+  color: #fff;
+}
+html .works {
+  width: 100%;
+  height: 100%;
+}
+html .works .inner {
+  justify-content: center;
+  align-content: center;
+}
+html .works .cover {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  max-width: 900px;
+  height: 500px;
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+}
+html .works .cover ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+html .works .cover ul li {
+  position: relative;
+  width: 25%;
+  height: 50%;
+  padding: 10px;
+}
+html .works .cover ul li .title {
+  height: 100%;
+  padding-top: 3.563rem;
+}
+html .works .cover ul li .title h2 {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  padding: 10px 10px 0px 10px;
+  font-size: 1.25rem;
+  font-weight: normal;
+  color: rgb(0, 0, 0);
+  transition: color 0.5s ease;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+html .works .cover ul li .title .type {
+  overflow: hidden;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  padding: 0 10px;
+  color: rgb(80, 80, 80);
+  transition: color 0.5s ease;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+html .works .cover ul li .title .desc {
+  overflow-y: hidden;
+  position: relative;
+  height: 100%;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(128, 128, 128, 0.3);
+  color: rgba(0, 0, 0, 0.3);
+  transition: border-top, color, 0.5s ease;
+  line-height: 1.3;
+}
+html .works .cover ul li .title .desc:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  background: linear-gradient(180deg, rgba(2, 0, 36, 0) 0%, rgb(255, 255, 255) 30%);
+  transition: opacity 0.5s ease;
+  width: 100%;
+  height: 100%;
+}
+html .works .cover ul li .bottom {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+}
+html .works .cover ul li .text {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  transition-timing-function: ease;
+  transition-duration: 0.5s;
+}
+html .works .cover ul li .period {
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  transition-property: bottom left transform opacity;
+  font-size: 0.875rem;
+}
+html .works .cover ul li .rate {
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  text-align: right;
+  transition-property: bottom right transform opacity;
+  font-size: 0.875rem;
+}
+html .works .cover ul li.last {
+  color: rgb(0, 0, 0);
+  transition: color 0.5s ease;
+}
+html .works .cover ul li.last .center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+html .works .cover ul li.last .center:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 300%;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+}
+html .works .cover ul li:before, html .works .cover ul li:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  background-color: rgb(0, 0, 0);
+}
+html .works .cover ul li:before {
+  transition-property: width;
+}
+html .works .cover ul li:after {
+  transition-property: height;
+}
+html .works .cover ul li:nth-child(4n+1):after, html .works .cover ul li:nth-child(-n+4):before {
+  content: none;
+}
+html .works .cover.on {
+  overflow-y: auto;
+  border-color: black;
+}
+html .works .cover.on ul {
+  border-color: rgb(0, 0, 0);
+}
+html .works .cover.on ul:hover {
+  border-color: rgba(0, 0, 0, 0.3);
+}
+html .works .cover.on ul:hover li .title h2 {
+  color: rgba(0, 0, 0, 0.3);
+}
+html .works .cover.on ul:hover li .title .type {
+  color: rgba(80, 80, 80, 0.3);
+}
+html .works .cover.on ul:hover li .period {
+  color: rgba(0, 0, 0, 0.3);
+}
+html .works .cover.on ul:hover li .rate {
+  color: rgba(0, 0, 0, 0.3);
+}
+html .works .cover.on ul:hover li:before, html .works .cover.on ul:hover li:after {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+html .works .cover.on ul:hover li.last {
+  color: rgba(0, 0, 0, 0.3);
+}
+html .works .cover.on ul:hover li.last .center:before {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+html .works .cover.on li:nth-child(-n+1):after, html .works .cover.on li:nth-child(-n+2):after, html .works .cover.on li:nth-child(-n+3):after, html .works .cover.on li:nth-child(-n+4):after {
+  width: 1px;
+  height: calc(100% + 2px);
+}
+html .works .cover.on li:nth-child(4n+1):not(:nth-child(-n+4)):before, html .works .cover.on li:nth-child(4n+2):not(:nth-child(-n+4)):before, html .works .cover.on li:nth-child(4n+3):not(:nth-child(-n+4)):before, html .works .cover.on li:nth-child(4n+4):not(:nth-child(-n+4)):before {
+  width: calc(100% + 2px);
+  height: 1px;
+}
+html .works .cover.on li:after {
+  width: 1px;
+  height: 100%;
+}
+html .works .cover.on li:hover:not(.last) .title h2 {
+  color: rgb(0, 0, 0);
+}
+html .works .cover.on li:hover:not(.last) .title .type {
+  color: rgb(80, 80, 80);
+}
+html .works .cover.on li:hover:not(.last) .title .desc {
+  overflow-y: auto;
+  border-top: 1px dashed rgb(128, 128, 128);
+  color: rgb(0, 0, 0);
+}
+html .works .cover.on li:hover:not(.last) .title .desc:before {
+  opacity: 0;
+}
+html .works .cover.on li:hover:not(.last) .period {
+  bottom: -35px;
+  left: -20px;
+  transform: scale(1.5);
+}
+html .works .cover.on li:hover:not(.last) .rate {
+  bottom: -35px;
+  right: -20px;
+  transform: scale(1.5);
+}
+html .contact .cover {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html .contact .cover .row {
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+}
+html .contact .cover .row p {
+  display: inline-block;
+  font-size: 4.375rem;
+  letter-spacing: -1px;
+}
+html .contact .cover a {
+  display: inline-block;
+  padding: 5px;
+  font-size: 1.875rem;
+  color: #000;
+  background-color: transparent;
+  font-weight: normal;
+}
+html .contact .cover a + button {
+  margin-left: 10px;
+}
+html .contact .cover button {
+  display: inline-block;
+}
+html .contact .cover footer {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  color: gray;
+}
+html .contact.on .cover .row p:before {
+  left: 0;
+  width: calc(50% - 155px);
+}
+html .contact.on .cover .row p:after {
+  right: 0px;
+  width: calc(50% - 159px);
+}
+html .contact.on .cover a {
+  background-color: black;
+  color: #fff;
+}
+html .active .content {
+  z-index: 900;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+html .box {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 0px;
+  border-color: transparent;
+}
+html .box.on {
+  display: block;
+  border-width: 1px;
+  border-color: black;
+}
+html .copied {
+  z-index: 99999;
+  position: absolute;
+  padding: 5px;
+  background-color: #fff;
+  border: 1px solid black;
+  color: black;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+html .clone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 4.375rem;
+  letter-spacing: -0.5px;
+  color: transparent;
+  visibility: hidden;
+}
+
+/* 레이아웃 - 모바일 */
+.mo {
+  font-size: 12px;
+  overscroll-behavior: none;
+}
+.mo .intro .step1 {
+  position: static;
+  width: 100%;
+  text-align: center;
+}
+.mo .intro .step1 span:last-child:before {
+  content: none;
+}
+.mo .intro .step2 {
+  width: 100%;
+  text-align: center;
+  padding-top: 70px;
+  vertical-align: middle;
+}
+.mo .intro .step3 {
+  padding-top: 70px;
+}
+.mo .log {
+  padding: 0 10px;
+}
+.mo .works {
+  position: relative;
+  padding: 0 30px;
+}
+.mo .works .cover ul li {
+  width: 100%;
+  height: 30%;
+}
+.mo .works .cover ul li:after {
+  content: none;
+}
+.mo .works .cover ul li:nth-child(-n+4):before {
+  content: "";
+}
+.mo .works .cover ul li:first-child:before {
+  content: none;
+}
+.mo .works .cover.on ul li:before {
+  width: calc(100% + 2px);
+  height: 1px;
+}
+.mo .contact {
+  padding: 0 10px;
+}
+.mo .copied {
+  left: auto;
+  right: 20px;
+}
+/* 레이아웃 - 비정상접근 */
+.deny {
+  height: 100%;
+}
+.deny body {
+  overflow: hidden;
+  height: 100%;
+}
+.deny .whole {
+  display: none;
+  opacity: 0;
+}
+.deny .pop {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  background-color: #fff;
+}
+    </style>
+</head>
+<body>
+    <div class="pop"></div>
+    <div class="whole">
+        <div class="page active">
+            <div class="content intro arrow">
+                <p>
+                    <span class="inner">
+                        <span class="row">
+                            <span class="step1 ani">
+                                <span>привет</span>
+                                <span>Hej</span>
+                                <span>مرحبًا</span>
+                                <span>Bonjour</span>
+                                <span>こんにちは</span>
+                                <span>¡Hola!</span>
+                                <span>สวัสดี</span>
+                                <span>你好</span>
+                                <span>Hello</span>
+                                <span>안녕하세요.</span>
+                            </span>
+                            <span class="step2">퍼블리셔</span>
+                        </span>
+                    </span>
+                </p>
+                <p>
+                    <span class="inner">
+                        <span class="step3">
+                            <strong class="target">이재희</strong>
+                            <span>입니다.</span>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="page">
+            <div class="content log">
+                <div class="inner">
+                    <table class="target">
+                        <colgroup>
+                            <col width="30%" />
+                            <col width="70%" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>스택</th>
+                                <td>html, css, scss, javascript, jquery<br>
+                                    photoshop, illustrator, git, svn, xd
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>경력</th>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <span class="name">이아이랩</span><span class="date">2019.05 ~</span><br>
+                                            퍼블리싱팀 / 선임
+                                        </li>
+                                        <li>
+                                            <span class="name">라인콩코리아</span><span class="date">2016.11 ~ 2018.01</span><br>
+                                            사업2팀 / 사원&middot;매니저
+                                        </li>
+                                        <li>
+                                            <span class="name">위메이드</span><span class="date">2011.11 ~ 2016.05</span><br>
+                                            사업1팀 / 과장
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>교육</th>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <span class="name">그린컴퓨터아카데미</span><span class="date">2018.06 ~ 2018.11</span><br>
+                                            디지털컨버전스(UI/UX엔지니어링, 프론트앤드)양성과정 24기
+                                        </li>
+                                        <li>
+                                            <span class="name">공주대학교(천안)</span><span class="date">2008.03 ~ 2013.02</span><br>
+                                            시각정보디자인전공
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>수상</th>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <span class="name">2009 좋은상상 거리표지판 디자인 공모전 동상</span><span class="date">2009.11</span>
+                                        </li>
+                                        <li>
+                                            <span class="name">제19회 한글 글꼴디자인 공모전 입선</span><span class="date">2011.11</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="content works">
+                <div class="inner">
+                    <div class="cover target">
+                        <ul class="">
+                            <!-- 리스트 생성 -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="content contact">
+                <div class="inner">
+                    <div class="cover">
+                        <div class="row">
+                            <p class="typing">
+                                <span class="origin">감사합니다.</span>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <a class="target" href="mailto:moonbemaremix@gmail.com">moonbeamremix@gmail.com</a>
+                            <button type="button" id="copy"><svg xmlns="http://v.www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                        </div>
+                        <footer>
+                            <p>
+                                이 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.<br>
+                                © 2024 이재희 All Rights Reserved.
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box"></div>
+    </div>
+    <script>
+        /******************************************
+         * 리스트 생성
+        *******************************************/
+        let project = [
+            {
+                'project' : 'M캐피탈',
+                'type' : 'app',
+                'period' : '21.11~22.07',
+                'rate': '퍼블리싱 100%',
+                'description': 'M캐피탈 모바일앱 구축 퍼블리싱',
+            },
+            {
+                'project' : '페퍼저축은행',
+                'type' : 'app/web(pc,mo)',
+                'period' : '21.03~21.12',
+                'rate': '퍼블리싱 100%',
+                'description': '페페퍼저축은행 차세대 디지털뱅킹 "디지털페퍼"의 앱, 웹(pc, mo) 퍼블리싱, 어플리케이션 메인의 원형 드래그 요소 등을 구현',
+            },
+            {
+                'project' : '금융결제원',
+                'type' : 'app',
+                'period' : '20.05~20.09',
+                'rate': '퍼블리싱 100%',
+                'description': '금융결제원 어카운트인포 APP 구축 퍼블리싱',
+            },
+            {
+                'project' : '옴니원',
+                'type' : '반응형web(pc,mo)',
+                'period' : '20.04~20.08',
+                'rate': '퍼블리싱 100%',
+                'description': '라온시큐어㈜에서 제공하는 서비스인 "옴니원" 홈페이지 반응형 퍼블리싱, 메인 작업자로 참여, swiper를 활용한 동적 요소 구현',
+            },
+            {
+                'project' : '광주은행',
+                'type' : 'app',
+                'period' : '19년 하반기',
+                'rate': '퍼블리싱 100%',
+                'description': '광주은행 스마트뱅킹 어플리케이션 메인화면 퍼블리싱 및 유지 보수',
+            },
+            {
+                'project' : 'KB캐피탈',
+                'type' : 'web(pc,mo)',
+                'period' : '22.05~23.01',
+                'rate': '퍼블리싱 30%',
+                'description': 'KB캐피탈 홈페이지 고도화 중 퍼블리싱 보조 작업자로 참여',
+            },
+            {
+                'project' : 'Data Maketing Korea',
+                'type' : 'web(pc,mo)',
+                'period' : '19.05~19.10',
+                'rate': '퍼블리싱 50%',
+                'description': '디지털 마케팅 분석 솔루션 "MA:DERI"의 구축 중 퍼블리싱 보조 작업자로 참여',
+            },
+        ]
+
+        let list = {
+            isCreated: false,
+            f: function(){
+                if ( !list.isCreated ){
+                    let ul = document.querySelector('.works ul');
+                    for ( let a = 0; a < project.length; a++ ){
+                        let li = document.createElement('li');
+                        ul.appendChild(li);
+        
+                        let htmlLi = ul.querySelectorAll('li')[a];
+                        
+                        let div1 = document.createElement('div');
+                        div1.classList.add('title');
+                        htmlLi.appendChild(div1);
+        
+                        let h2 = document.createElement('h2');
+                        h2.textContent = project[a].project;
+                        htmlLi.querySelector('.title').appendChild(h2);
+        
+                        let p1 = document.createElement('p');
+                        p1.classList.add('type');
+                        p1.textContent = project[a].type;
+                        htmlLi.querySelector('.title').appendChild(p1);
+        
+                        let p2 = document.createElement('p');
+                        p2.classList.add('desc');
+                        p2.textContent = project[a].description;
+                        htmlLi.querySelector('.title').appendChild(p2);
+        
+                        let div2 = document.createElement('div');
+                        div2.classList.add('bottom');
+                        htmlLi.appendChild(div2);
+        
+                        let div3 = document.createElement('div');
+                        div3.classList.add('text', 'period');
+                        div3.textContent = project[a].period;
+                        htmlLi.querySelector('.bottom').appendChild(div3);
+        
+                        let div4 = document.createElement('div');
+                        div4.classList.add('text', 'rate');
+                        div4.textContent = project[a].rate;
+                        htmlLi.querySelector('.bottom').appendChild(div4);
+                    }
+        
+                    let last1 = document.createElement('li');
+                    last1.classList.add('last');
+                    ul.appendChild(last1);
+        
+                    let last2 = document.createElement('div');
+                    last2.classList.add('center');
+                    last2.textContent = 'and more...';
+                    ul.querySelector('li.last').appendChild(last2);
+
+                    list.isCreated = true;
+                }
+            }
+        }
+
+
+        /******************************************
+         * 타이핑
+        *******************************************/
+        let typing = {
+            isTyping: true, 
+            isCreateSentence: true,
+            isStop: false,
+            f: function (){
+                let typingTarget = document.querySelector('.typing');
+                let sentence = [
+                    ['ㄱ','가','감'],
+                    ['ㅅ','사'],
+                    ['ㅎ','하','합'],
+                    ['ㄴ','니'],
+                    ['ㄷ','다'],
+                    ['.']
+                ];
+                let cnt = -1;
+                let idx = 0;
+
+                if ( typing.isCreateSentence ){
+                    for ( let a = 0; a < sentence.length; a++ ){
+                        let p = document.createElement('span');
+                        p.className = `h${a+1}`;
+                        typingTarget.appendChild(p);
+                    }
+                    typing.isCreateSentence = false;
+                }
+                let duration = 50;
+                let doTyping = setInterval(go, duration);
+
+                function go(){
+                    if ( typing.isStop ){
+                        cnt = -1;
+                        idx = 0;
+                        sentence = [];
+                        clearInterval(doTyping)
+                    } else {
+                        cnt++;
+                        document.querySelector(`.h${idx+1}`).textContent = sentence[idx][cnt];
+    
+                        if ( cnt == sentence[idx].length - 1 ){
+                            clearInterval(doTyping);
+                            idx++;
+                            cnt = -1;
+                            doTyping = setInterval(go, duration);
+                            if ( cnt == -1 && idx == sentence.length ){
+                                clearInterval(doTyping);
+                                typing.isTyping = false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        /******************************************
+         * 복사
+        *******************************************/
+        let copyBtn = document.querySelector('#copy');
+        copyBtn.addEventListener('click', (e) => {
+            let mail = document.querySelector('a.target').textContent;
+            let span = document.createElement('span');
+            span.classList.add('copied');
+            span.textContent = '메일 주소 복사 완료!';
+            document.querySelector('body').appendChild(span);
+
+            let copied = document.querySelector('.copied');
+            copyBtn.disabled = true;
+			copied.style.top =`${e.pageY + 10}px`;
+			if ( document.querySelector('html').classList.contains('mo') ){
+				// copied.style.left = `${window.outerWidth - copyBtn.clientWidth}px`;
+			} else {
+				copied.style.left = `${e.pageX + 10}px`;
+			}
+            navigator.clipboard.writeText(`${mail}`);
+            setTimeout(function(){
+                copied.remove();
+                copyBtn.disabled = false;
+            },500)
+        });
+
+
+        /******************************************
+         * 스크롤 이벤트
+        *******************************************/
+        let box = document.querySelector('.box');
+        let pages = document.querySelectorAll('.page');
+
+        let v = {
+            point: {},
+            page: {},
+            wW: 0,
+            wH: 0,
+        }
+
+        for ( let n0 = 0; n0 < pages.length; n0++ ){
+            v.point[`p${n0+1}`] = {t:0, l:0, w:0, h:0, tagt: null,}; // top left width height target
+            v.page[`p${n0+1}`] = 0;
+        }
+
+        // 스크롤 이벤트용
+        let scrl = {
+            dot: {
+                p: 0, // past
+                n: 0, // now
+            },
+            i: { // index
+                p: 0, // past
+                n: 0, // now
+            },
+            d: null, // direction
+            break: 0,
+            keep: {
+                b: true, // boolean
+                d: null, // direction
+            },
+            space: 1000,
+            first: false,
+            typing: 0,
+            f: function(type){
+                if ( type == 'box' ){
+                // 박스 움직이는 이벤트
+                let direction = ( scrl.keep.d == 'down' ) ? scrl.i.p : scrl.i.n;
+                box.style.top = `${((v.point[`p${scrl.i.n}`].t - v.point[`p${scrl.i.p}`].t)/v.wH)*(scrl.dot.n - scrl.break)+(v.point[`p${direction}`].t+scrl.break) }px`;
+                box.style.height = `${((v.point[`p${scrl.i.n}`].h - v.point[`p${scrl.i.p}`].h)/v.wH)*(scrl.dot.n - scrl.break)+v.point[`p${direction}`].h}px`;
+                box.style.left = `${((v.point[`p${scrl.i.n}`].l - v.point[`p${scrl.i.p}`].l)/(v.wH))*(scrl.dot.n - scrl.break)+v.point[`p${direction}`].l }px`;
+                box.style.width = `${((v.point[`p${scrl.i.n}`].w - v.point[`p${scrl.i.p}`].w)/(v.wH))*(scrl.dot.n - scrl.break)+v.point[`p${direction}`].w}px`;
+                } else if ( type == 'positions' ){
+                    // 타겟 위치 변수에 세팅
+                    let idx = Array.from(pages).indexOf( document.querySelector('.active'));
+                    if ( scrl.d == 'down' ){
+                        scrl.i.p = `${idx + 1}`;
+                        scrl.i.n = `${idx + 2}`;
+                    } else {
+                        if ( pages[0].classList.contains('active') ){
+                            scrl.i.p = `${idx + 1}`;
+                            scrl.i.n = `${idx + 2}`;
+                        } else if ( pages[1].classList.contains('active') ) {
+                            if ( scrl.d == 'up' ){
+                                scrl.i.p = 2;
+                                scrl.i.n = 3;
+                            } else {
+                                scrl.i.p = `${idx}`;
+                                scrl.i.n = `${idx + 1}`;
+                            }
+                        } else if ( pages[2].classList.contains('active') ){
+                            if ( scrl.d == 'up' ){
+                                scrl.i.p = 3;
+                                scrl.i.n = 4;
+                            } else {
+                                scrl.i.p = `${idx}`;
+                                scrl.i.n = `${idx + 1}`;
+                            }
+                        } 
+                    }
+                    scrl.break = scrl.dot.n;
+                    setTarget();
+                }
+            }
+        }
+
+        // 스크롤 이벤트 조건 수량만큼 불리언 생성
+        for ( let n1 = 0; n1 < 6; n1++ ){ 
+            scrl[`b${n1}`] = true;
+        }
+
+        window.addEventListener('scroll', () => {
+            scrl.dot.n = window.pageYOffset;
+            scrl.d = ( scrl.dot.p < scrl.dot.n ) ? 'down' : 'up';
+            scrl.dot.p = scrl.dot.n;
+
+            if ( scrl.dot.n <= (scrl.space/2) ){
+                // 구간 1 sticky
+                scrl.keep.d = scrl.d;
+                if ( !scrl.b1 ){
+                    if ( !pages[0].classList.contains('active') ){
+                        pages[0].classList.add('active');
+                        pages[1].classList.remove('active');
+                    }
+                    scrl.b2 = true;
+                    scrl.b3 = true;
+                    scrl.b4 = true;
+                    scrl.b5 = true;
+                    scrl.b6 = true;
+                    scrl.b1 = true;
+                }
+                if ( scrl.d == 'down' && scrl.keep.d == 'down' ){
+                    if ( scrl.b0 ){
+                        scrl.b0 = false;
+                    }
+                } else if ( scrl.d == 'up' && scrl.keep.d == 'up' ) {
+                    if ( !scrl.b0 ){
+                        box.classList.remove('on');
+                        scrl.b0 = true;
+                    }
+                }
+                if ( scrl.first && intro.b3 && intro.b4 ){
+                    intro.n3.emp.classList.add('on5')
+                }
+                document.querySelector('.intro').classList.add('arrow');
+            } else if ( scrl.dot.n <= v.wH + (scrl.space/2) ){
+                document.querySelector('.intro').classList.remove('arrow');
+                if ( scrl.first && intro.b3 && intro.b4 ){
+                    intro.n3.emp.classList.remove('on5')
+                }
+                // 구간 1~2 스크롤
+                if ( scrl.keep.b ){
+                    scrl.keep.d = scrl.d;
+                    scrl.keep.b = false;
+                }
+                if ( scrl.d == 'down' && scrl.keep.d == 'down' ){
+                    if ( scrl.b1 ){
+                        scrl.f('positions');
+                        box.classList.add('on');
+                        scrl.b1 = false;
+                    }
+                } else if ( scrl.d == 'up' && scrl.keep.d == 'up' ) {
+                    if ( !scrl.b1 ){
+                        pages[0].classList.add('active');
+                        pages[1].classList.remove('active');
+                        document.querySelector('table').classList.remove('on');
+                        scrl.f('positions');
+                        box.classList.add('on');
+                        scrl.b1 = true;
+                    }
+                }
+                scrl.f('box');
+            } else if ( scrl.dot.n <= v.wH + (scrl.space/2) + (scrl.space/2) ){
+                // 구간 2 sticky
+                scrl.keep.d = scrl.d;
+                if ( scrl.d == 'up' ){
+                    scrl.b1 = false;
+                }
+                if ( scrl.d == 'down' && scrl.keep.d == 'down' ){
+                    if ( scrl.b2 ){
+                        pages[0].classList.remove('active');
+                        pages[1].classList.add('active');
+                        document.querySelector('table').classList.add('on');
+                        scrl.f('positions');
+                        box.classList.remove('on');
+                        scrl.b2 = false;
+                    }
+                } else if ( scrl.d == 'up' && scrl.keep.d == 'up' ){
+                    if ( !scrl.b2 ){
+                        document.querySelector('table').classList.add('on');
+                        scrl.f('positions');
+                        box.classList.remove('on');
+                        scrl.b2 = true;
+                    }
+                }
+            } else if ( scrl.dot.n <= (v.wH*2) + (scrl.space/2) + (scrl.space/2) ){
+                // 구간 2~3 스크롤
+                if ( !scrl.b4 ){
+                    scrl.b4 = true;
+                }
+                if ( !scrl.keep.b ){
+                    scrl.keep.d = scrl.d;
+                    scrl.keep.b = true;
+                }
+                if ( scrl.d == 'down' && scrl.keep.d == 'down' ){
+                    if ( scrl.b3 ){
+                        document.querySelector('table').classList.remove('on');
+                        scrl.f('positions');
+                        box.classList.add('on');
+                        scrl.b3 = false;
+                        document.querySelector('.works .cover').scroll(0,0);
+                    }
+                } else if ( scrl.d == 'up' && scrl.keep.d == 'up' ){
+                    if ( !scrl.b3 ){
+                        pages[1].classList.add('active');
+                        pages[2].classList.remove('active');
+                        document.querySelector('.cover').classList.remove('on');
+                        scrl.f('positions');
+                        box.classList.add('on');
+                        scrl.b3 = true; 
+                        document.querySelector('.works .cover').scroll(0,0);
+                    }
+                }
+                scrl.f('box');
+            } else if ( scrl.dot.n <= (v.wH*2) + (scrl.space/2) + (scrl.space/2) + (scrl.space/2) ){
+                // 구간 3 sticky
+                scrl.keep.d = scrl.d;
+                if ( scrl.d == 'up' ){
+                    scrl.b3 = false;
+                } else if ( scrl.d == 'down' ){
+                    scrl.b5 = true;
+                }
+                if ( scrl.d == 'down' && scrl.keep.d == 'down' ){
+                    if ( scrl.b4 ){
+                        pages[1].classList.remove('active');
+                        pages[2].classList.add('active');
+                        document.querySelector('.cover').classList.add('on');
+                        scrl.f('positions');
+                        box.classList.remove('on');
+                        scrl.b4 = false;
+                    }
+                } else if ( scrl.d == 'up' && scrl.keep.d == 'up' ){
+                    if ( !scrl.b4 ){
+                        document.querySelector('.cover').classList.add('on');
+                        scrl.f('positions');
+                        box.classList.remove('on');
+                        scrl.b4 = true;
+                    }
+                }
+                if ( !typing.isCreateSentence ){
+                    for ( let a = 0; a < document.querySelectorAll('.typing > span').length; a++ ){
+                        document.querySelectorAll('.typing > span')[a].textContent = '';
+                    }
+                }
+                typing.isTyping = true;
+            } else if ( scrl.dot.n < (v.wH*3) + (scrl.space/2) + (scrl.space/2) + (scrl.space/2) - 1 ){
+                // 구간 3~4 sticky
+                if ( scrl.keep.b ){
+                    scrl.keep.d = scrl.d;
+                    scrl.keep.b = false;
+                }
+                if ( scrl.d == 'down' && scrl.keep.d == 'down' ){
+                    if ( scrl.b5 ){
+                        document.querySelector('.cover').classList.remove('on');
+                        scrl.f('positions');
+                        box.classList.add('on');
+                        scrl.b5 = false;
+                        document.querySelector('.works .cover').scroll(0,0);
+
+                    }
+                } else if ( scrl.d == 'up' && scrl.keep.d == 'up' ){
+                    if ( !scrl.b5 ){
+                        pages[2].classList.add('active');
+                        pages[3].classList.remove('active');
+                        document.querySelector('.contact').classList.remove('on');
+                        scrl.f('positions');
+                        box.classList.add('on');
+                        scrl.b5 = true;
+                        document.querySelector('.works .cover').scroll(0,0);
+                    }
+                }
+                scrl.f('box');
+            } else if ( scrl.dot.n < (v.wH*4) + (scrl.space/2) + (scrl.space/2) + (scrl.space/2) ){
+                // 구간 4 sticky
+                scrl.keep.d = 'up';
+                scrl.b5 = false;
+                pages[2].classList.remove('active');
+                pages[3].classList.add('active');
+                document.querySelector('.contact').classList.add('on');
+                scrl.f('positions');
+                box.classList.remove('on');
+                if ( typing.isTyping ) {
+                    typing.f();
+                }
+            }
+            if ( scrl.dot.n <= scrl.typing ){
+                typing.isStop = true;
+            } else {
+                typing.isStop = false;
+            }
+        })
+
+
+        /******************************************
+         * 화면 세팅
+        *******************************************/
+        let setCommon = {
+            denyText: '최소 해상도에 미치지 못하므로 더 큰 해상도의 환경에서 접속해 주십시오.',
+            isMobile: true,
+            sameDevice: true,
+            resizeEnd: true,
+            htmlClasses: null,
+            f: function(){
+                setCommon.isMobile = /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
+                if ( setCommon.isMobile && setCommon.resizeEnd ) {
+                    document.querySelector('html').classList.add('mo');
+                } else if ( !setCommon.isMobile && setCommon.resizeEnd ) {
+                    document.querySelector('html').classList.remove('mo');
+                }
+
+                let mW = 1000;
+                v.wW = ( document.querySelector('html').classList.contains('mo') ) ? window.outerWidth : ( window.innerWidth > mW ) ? window.innerWidth-18 : mW;
+                v.wH = window.innerHeight;
+
+                if ( v.wH < 500 ){
+                    deny();
+                } else {
+                    if ( document.querySelector('html').classList.contains('deny') ){
+                        document.querySelector('html').classList.remove('deny');
+                        document.querySelector('.pop').remove();
+                    }
+                    for ( let a = 0; a < pages.length; a++ ){
+                        if ( v.wW > 375 ){
+                            pages[a].style.width = `${v.wW}px`;
+                        }
+                        pages[a].style.height = `${v.wH + (scrl.space/2)}px`;
+                        pages[a].children[0].style.height = `${v.wH}px`;
+        
+                        v.page[`p${a+1}`] = pages[a].getBoundingClientRect().top;
+                        v.point[`p${a+1}`].tagt = document.querySelectorAll('.page')[a].querySelector('.target');
+                    }
+                    pages[pages.length-1].style.height = `${v.wH - 18}px`;
+                    v.page[`p${pages.length}`] = pages[pages.length-1].getBoundingClientRect().top;
+        
+                    document.querySelector('.typing').style.width = `${document.querySelector('.typing').clientWidth+1}px`;
+                    document.querySelector('.typing').style.height = `${document.querySelector('.typing').clientHeight}px`;
+                    list.f();
+                }
+            }
+        }
+
+        function setTarget(){
+            for ( let a = 0; a < pages.length; a++ ){
+                v.point[`p${a+1}`].t = v.point[`p${a+1}`].tagt.getBoundingClientRect().top;
+                v.point[`p${a+1}`].l = v.point[`p${a+1}`].tagt.getBoundingClientRect().left;
+                v.point[`p${a+1}`].w = v.point[`p${a+1}`].tagt.clientWidth+1; 
+                v.point[`p${a+1}`].h = v.point[`p${a+1}`].tagt.clientHeight+1; 
+            }
+        }
+
+
+        /******************************************
+         * 인트로
+        *******************************************/
+        let introWrap = document.querySelector('.intro');
+        let intro = {
+            row: introWrap.querySelector('.inner .row'),
+            n1: {
+                wrap: introWrap.querySelector('.step1'),
+                el: introWrap.querySelectorAll('.step1 span'),
+                cnt: 0,
+            },
+            n2: {
+                wrap: introWrap.querySelector('.step2'),
+            },
+            n3: {
+                wrap: introWrap.querySelector('.step3'),
+                emp: introWrap.querySelector('.step3 strong'),
+            },
+            b3: false,
+            b4: false,
+        }
+
+        function introStep02(){
+            intro.n2.wrap.classList.add('on3');
+            intro.n2.wrap.ontransitionend = () => {
+                introStep03();
+            }
+        }
+        function introStep03(){
+            intro.n3.wrap.classList.add('on4');
+            intro.n3.wrap.ontransitionend = () => {
+                if ( !intro.b3 ){
+                    introStep04();
+                    intro.b3 = true;
+                }
+            }
+        }
+
+        function introStep04(){
+            intro.n3.emp.classList.add('on5');
+            intro.n3.wrap.classList.add('on6');
+            scrl.first = true;
+            let strong = document.querySelector('strong');
+            intro.n3.emp.ontransitionend = () => {
+                if ( !intro.b4 ){
+                    v.point.p1.t = strong.getBoundingClientRect().top;
+                    v.point.p1.l = strong.getBoundingClientRect().left;
+                    v.point.p1.w = strong.clientWidth;
+                    v.point.p1.h = strong.clientHeight;
+                    intro.b4 = true;
+                }
+            }
+            document.querySelector('.ani').classList.remove('ani')
+        }
+
+        function introRun(){
+            let cloneWidth;
+            let commonHeight = document.querySelector('.step3 span').clientHeight;
+            let lastChild = document.querySelector('.step1 > span:last-child');
+            if ( !document.querySelector('html').classList.contains('mo') ){
+                intro.n2.wrap.style.width = `${intro.n2.wrap.clientWidth + 1}px`;
+                intro.n2.wrap.style.height = `${intro.n2.wrap.clientHeight - commonHeight}px`;
+            } else {
+                intro.n2.wrap.style.height = `${intro.n2.wrap.clientHeight - (intro.n2.wrap.clientHeight/2)}px`;
+            }
+            intro.n3.wrap.style.height = `${commonHeight}px`;
+            intro.n3.emp.style.width = `${intro.n3.emp.clientWidth + 1}px`;
+            intro.n3.emp.style.height = `${commonHeight}px`
+            document.querySelector('body').appendChild( lastChild.cloneNode(true) )
+            document.querySelector('body > span').classList.add('clone');
+            cloneWidth = document.querySelector('.clone').clientWidth + 1;
+            document.querySelector('.clone').remove();
+
+            let globalIntro = setInterval(introStep01, 100);
+            function introStep01(){
+                intro.n1.cnt++;
+                intro.n1.el[intro.n1.cnt-1].classList.add('on1')
+                if ( intro.n1.cnt >= 2 ) { 
+                    intro.n1.el[intro.n1.cnt-2].classList.remove('on1')
+                }
+                if ( intro.n1.cnt == intro.n1.el.length ){ 
+                    clearInterval(globalIntro);
+                    if ( document.querySelector('html').classList.contains('mo') ){
+
+                    } else {
+                        lastChild.style.width = `${cloneWidth}px`;
+                        intro.row.style.width = `${cloneWidth + intro.n2.wrap.clientWidth + 1}px`;
+                    }
+                    intro.n1.wrap.classList.add('on2');
+                    intro.n1.wrap.ontransitionend = () => {
+                        if ( !document.querySelector('html').classList.contains('mo') ){
+                            intro.n2.wrap.style.marginLeft = `${cloneWidth + 15}px`;
+                        }
+                        introStep02();
+                    }
+                }
+            }
+        }
+
+        // 해상도 너무 낮을 때
+        function deny(){
+            if ( v.wH < 500 ){
+                document.querySelector('html').classList.add('deny');
+                if ( document.querySelector('.pop') == null ){
+                    let div = document.createElement('div');
+                    div.textContent = setCommon.denyText;
+                    div.classList.add('pop')
+                    document.body.prepend(div);
+                } else {
+                    document.querySelector('.pop').textContent = setCommon.denyText;
+                }
+            } else {
+                return false;
+            }
+        }
+
+
+        /******************************************
+         * 로드,리사이즈
+        *******************************************/
+        window.onload = () => {
+            setCommon.f();
+            setCommon.htmlClasses = document.querySelector('html').classList.value;
+            setTarget();
+            introRun();
+            setTimeout(function(){
+                window.scroll(0,0);
+                scrl.typing = (pages[0].clientHeight*3)-(window.innerHeight/2)-110;
+                document.querySelector('.typing .origin').remove();
+            },10)
+        }
+
+        let timer;
+        window.onresize = () => {
+			if ( !setCommon.isMobile ){
+				setCommon.resizeEnd = false;
+				clearTimeout(timer);
+				timer = setTimeout(function(){
+					setCommon.f();
+					timer = undefined;
+					setCommon.resizeEnd = true;
+					setCommon.f();
+					setTarget();
+					window.scroll(0,0);
+					scrl.typing = (pages[0].clientHeight*3)-(window.innerHeight/2)-110;
+					if ( setCommon.htmlClasses != document.querySelector('html').classList.value ){
+						location.reload(true);
+					}
+				},100)
+			}
+        }
+    </script>
+</body>
+</html>
