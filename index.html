@@ -1485,7 +1485,7 @@ html .clone {
             setTarget();
             introRun();
             setTimeout(function(){
-                window.scroll(0,0);
+                window.scroll({top: -1, left: 0, behavior: "smooth"});
                 scrl.typing = (pages[0].clientHeight*3)-(window.innerHeight/2)-110;
                 document.querySelector('.typing .origin').remove();
             },10)
