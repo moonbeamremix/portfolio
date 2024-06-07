@@ -41,7 +41,7 @@ html {
   min-width: 375px;
   line-height: 1.15;
   font-size: 16px;
-  /* -webkit-overflow-scrolling: touch; */
+  -webkit-overflow-scrolling: touch;
 }
 html .whole {
   display: inline-block;
@@ -428,28 +428,28 @@ html .works .cover.on {
 html .works .cover.on ul {
   border-color: rgb(0, 0, 0);
 }
-html .works .cover.on ul:hover:active {
+html .works .cover.on ul:hover {
   border-color: rgba(0, 0, 0, 0.3);
 }
-html .works .cover.on ul:hover:active li .title h2 {
+html .works .cover.on ul:hover li .title h2 {
   color: rgba(0, 0, 0, 0.3);
 }
-html .works .cover.on ul:hover:active li .title .type {
+html .works .cover.on ul:hover li .title .type {
   color: rgba(80, 80, 80, 0.3);
 }
-html .works .cover.on ul:hover:active li .period {
+html .works .cover.on ul:hover li .period {
   color: rgba(0, 0, 0, 0.3);
 }
-html .works .cover.on ul:hover:active li .rate {
+html .works .cover.on ul:hover li .rate {
   color: rgba(0, 0, 0, 0.3);
 }
-html .works .cover.on ul:hover:active li:before, html .works .cover.on ul:hover:active li:after {
+html .works .cover.on ul:hover li:before, html .works .cover.on ul:hover li:after {
   background-color: rgba(0, 0, 0, 0.3);
 }
-html .works .cover.on ul:hover:active li.last {
+html .works .cover.on ul:hover li.last {
   color: rgba(0, 0, 0, 0.3);
 }
-html .works .cover.on ul:hover:active li.last .center:before {
+html .works .cover.on ul:hover li.last .center:before {
   background-color: rgba(0, 0, 0, 0.3);
 }
 html .works .cover.on li:nth-child(-n+1):after, html .works .cover.on li:nth-child(-n+2):after, html .works .cover.on li:nth-child(-n+3):after, html .works .cover.on li:nth-child(-n+4):after {
@@ -464,26 +464,32 @@ html .works .cover.on li:after {
   width: 1px;
   height: 100%;
 }
-html .works .cover.on li:hover:active:not(.last) .title h2 {
+html .works .cover.on li:hover:not(.last) .title h2,
+html.mo .works .cover.on li.touch:not(.last) .title h2 {
   color: rgb(0, 0, 0);
 }
-html .works .cover.on li:hover:active:not(.last) .title .type {
+html .works .cover.on li:hover:not(.last) .title .type,
+html.mo .works .cover.on li.touch:not(.last) .title .type {
   color: rgb(80, 80, 80);
 }
-html .works .cover.on li:hover:active:not(.last) .title .desc {
+html .works .cover.on li:hover:not(.last) .title .desc,
+html.mo .works .cover.on li.touch:not(.last) .title .desc {
   overflow-y: auto;
   border-top: 1px dashed rgb(128, 128, 128);
   color: rgb(0, 0, 0);
 }
-html .works .cover.on li:hover:active:not(.last) .title .desc:before {
+html .works .cover.on li:hover:not(.last) .title .desc:before,
+html.mo .works .cover.on li.touch:not(.last) .title .desc:before {
   opacity: 0;
 }
-html .works .cover.on li:hover:active:not(.last) .period {
+html .works .cover.on li:hover:not(.last) .period,
+html.mo .works .cover.on li.touch:not(.last) .period {
   bottom: -35px;
   left: -20px;
   transform: scale(1.5);
 }
-html .works .cover.on li:hover:active:not(.last) .rate {
+html .works .cover.on li:hover:not(.last) .rate,
+html.mo .works .cover.on li.touch:not(.last) .rate {
   bottom: -35px;
   right: -20px;
   transform: scale(1.5);
@@ -1185,6 +1191,9 @@ html .clone {
                         pages[1].classList.add('active');
                         pages[2].classList.remove('active');
                         document.querySelector('.cover').classList.remove('on');
+                        if ( document.querySelector('.cover ul .touch') != null ){
+                            document.querySelector('.cover ul .touch').classList.remove('touch')
+                        }
                         scrl.f('positions');
                         box.classList.add('on');
                         scrl.b3 = true; 
@@ -1232,6 +1241,9 @@ html .clone {
                 if ( scrl.d == 'down' && scrl.keep.d == 'down' ){
                     if ( scrl.b5 ){
                         document.querySelector('.cover').classList.remove('on');
+                        if ( document.querySelector('.cover ul .touch') != null ){
+                            document.querySelector('.cover ul .touch').classList.remove('touch')
+                        }
                         scrl.f('positions');
                         box.classList.add('on');
                         scrl.b5 = false;
@@ -1445,6 +1457,24 @@ html .clone {
             }
         }
 
+        // hover -> touch
+        function touch(){
+            let lis = document.querySelectorAll('.works .cover ul li');
+            lis.forEach((li) => {
+                li.addEventListener('touchstart', () => {
+                    if ( document.querySelector('.works .cover').classList.contains('on') ){
+                        let i = Array.from(lis).indexOf( document.querySelector('.touch'));
+                        if ( i != -1 ){
+                            lis[i].classList.remove('touch');
+                            li.classList.add('touch')
+                        } else {
+                            li.classList.add('touch')
+                        }
+                    }
+                })
+            })
+        }
+
 
         /******************************************
          * 로드,리사이즈
@@ -1459,6 +1489,7 @@ html .clone {
                 scrl.typing = (pages[0].clientHeight*3)-(window.innerHeight/2)-110;
                 document.querySelector('.typing .origin').remove();
             },10)
+            touch();
         }
 
         let timer;
